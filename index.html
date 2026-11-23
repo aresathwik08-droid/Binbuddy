@@ -1,0 +1,167 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>BinBuddy - CleanStreet Challenge</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<header>
+    <div class="logo">♻ BinBuddy</div>
+    <nav>
+        <a href="#home">Home</a>
+        <a href="#schedule">Schedule</a>
+        <a href="#lookup">Waste Lookup</a>
+        <a href="#report">Report</a>
+        <a href="#status">Status Board</a>
+        <a href="#worker">Worker</a>
+    </nav>
+</header>
+
+<section class="hero" id="home">
+    <h1>Keep Your City Clean With BinBuddy!</h1>
+    <p>Smart waste management for a cleaner and greener community.</p>
+    <a href="#report" class="main-btn">Report Garbage</a>
+</section>
+
+<section class="container">
+    <h2>Our Services</h2>
+    <div class="services">
+        <div class="service-card">
+            <h3>📅 Pickup Schedule</h3>
+            <p>Check your garbage collection days.</p>
+        </div>
+        <div class="service-card">
+            <h3>🔍 Waste Lookup</h3>
+            <p>Find the correct bin for your waste.</p>
+        </div>
+        <div class="service-card">
+            <h3>📢 Report Issues</h3>
+            <p>Report overflowing garbage bins.</p>
+        </div>
+        <div class="service-card">
+            <h3>🌱 Eco Community</h3>
+            <p>Help your neighborhood stay clean.</p>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="schedule">
+    <h2>🗓 Garbage Pickup Schedule</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>Day</th>
+                <th>Waste Type</th>
+            </tr>
+        </thead>
+        <tbody id="scheduleTable">
+            <tr><td>Monday</td><td>Wet Waste</td></tr>
+            <tr><td>Tuesday</td><td>Dry Waste</td></tr>
+            <tr><td>Wednesday</td><td>Sanitary Waste</td></tr>
+            <tr><td>Thursday</td><td>E-Waste</td></tr>
+            <tr><td>Friday</td><td>Wet Waste</td></tr>
+        </tbody>
+    </table>
+</section>
+
+<section class="container" id="lookup">
+    <h2>🔍 Waste Segregation Lookup</h2>
+    <p>Enter an item name to find the correct waste bin.</p>
+
+    <div class="search-box">
+        <input type="text" id="wasteInput"
+               placeholder="Example: vegetable peels">
+        <button onclick="searchWaste()">Search</button>
+    </div>
+
+    <div id="wasteResult" class="result"></div>
+</section>
+
+<section class="container" id="report">
+    <h2>📢 Report Garbage Problems</h2>
+
+    <form id="complaintForm">
+        <label>Your Name</label>
+        <input type="text" id="userName" required>
+
+        <label>Location</label>
+        <input type="text" id="location"
+               placeholder="Enter street or area" required>
+
+        <label>Waste Category</label>
+        <select id="category" required>
+            <option value="">Select Category</option>
+            <option>Wet Waste</option>
+            <option>Dry Waste</option>
+            <option>Sanitary Waste</option>
+            <option>E-Waste</option>
+            <option>Overflowing Garbage</option>
+        </select>
+
+        <label>Upload Garbage Photo</label>
+        <input type="file" id="photo" accept="image/*">
+
+        <img id="photoPreview" alt="Photo preview"
+             class="photo-preview">
+
+        <label>Problem Description</label>
+        <textarea id="description"
+                  placeholder="Describe the problem..."
+                  required></textarea>
+
+        <button type="submit">Submit Complaint</button>
+    </form>
+
+    <p id="message"></p>
+</section>
+
+<section class="container" id="status">
+    <h2>📋 Public Cleanliness Status Board</h2>
+
+    <div class="status-board">
+        <div class="status-column">
+            <h3>🔴 Reported</h3>
+            <div id="reportedList"></div>
+        </div>
+
+        <div class="status-column">
+            <h3>🟡 Assigned</h3>
+            <div id="assignedList"></div>
+        </div>
+
+        <div class="status-column">
+            <h3>🟢 Cleaned</h3>
+            <div id="cleanedList"></div>
+        </div>
+    </div>
+</section>
+
+<section class="container" id="worker">
+    <h2>🚛 Sanitation Worker Dashboard</h2>
+    <p>Manage complaints and update their status.</p>
+    <div id="workerList"></div>
+</section>
+
+<section class="container" id="quiz">
+    <h2>🌱 Waste Segregation Quiz</h2>
+    <p>Where should vegetable peels go?</p>
+    <button onclick="checkQuiz('Green')">Green Bin</button>
+    <button onclick="checkQuiz('Blue')">Blue Bin</button>
+    <button onclick="checkQuiz('Red')">Red Bin</button>
+    <p id="quizResult"></p>
+    <h3>Your Eco Points: <span id="ecoPoints">0</span></h3>
+</section>
+
+<footer>
+    <h3>♻ BinBuddy</h3>
+    <p>Clean Streets, Green Future!</p>
+    <p>© 2026 BinBuddy - CleanStreet Challenge</p>
+</footer>
+
+<script src="script.js"></script>
+</body>
+</html>
